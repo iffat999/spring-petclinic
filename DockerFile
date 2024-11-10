@@ -1,11 +1,13 @@
+# Use Java 17 as the base image
 FROM openjdk:17-jre-slim
 
-
-COPY target/spring-petclinic-3.3.0-SNAPSHOT.jar /usr/app/
-
-
+# Set the working directory inside the container
 WORKDIR /usr/app
 
+# Copy the JAR file from the target folder to the container
+COPY target/spring-petclinic-3.3.0-SNAPSHOT.jar /usr/app/app.jar
 
-CMD ["java", "-jar", "spring-petclinic-3.3.0-SNAPSHOT.jar"]
+# Run the application
+CMD ["java", "-jar", "/usr/app/app.jar"]
+
 
