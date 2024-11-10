@@ -1,0 +1,11 @@
+FROM openjdk:11-jre-slim
+
+
+COPY target/spring-petclinic-3.3.0-SNAPSHOT.jar /usr/app/
+
+
+WORKDIR /usr/app
+
+
+CMD ["java", "-jar", "spring-petclinic-3.3.0-SNAPSHOT.jar"]
+
